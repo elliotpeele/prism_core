@@ -10,7 +10,11 @@
 # or fitness for a particular purpose. See the MIT License for full details.
 #
 
+import logging
+
 from pyramid.threadlocal import get_current_registry
+
+log = logging.getLogger('prism.core.util')
 
 class AttrDict(dict):
     """
