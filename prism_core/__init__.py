@@ -11,4 +11,5 @@
 #
 
 def includeme(config):
+    config.scan()
     return config
