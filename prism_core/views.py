@@ -16,6 +16,8 @@ Core module for storing common view super class.
 
 import logging
 
+from venusian import lift
+
 from pyramid.view import view_config
 from pyramid.view import view_defaults as pyramid_view_defaults
 from pyramid.httpexceptions import HTTPNotImplemented
@@ -69,6 +71,8 @@ class BaseView(object):
 
     def _call_method(self, method):
         if hasattr(self, method):
+            log.debug('calling %s method of %s', method,
+                self.__class__.__name__)
             func = getattr(self, method)
             return func()
         else:
