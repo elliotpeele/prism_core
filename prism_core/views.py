@@ -16,7 +16,9 @@ Core module for storing common view super class.
 
 import logging
 
-from venusian import lift
+# Imported for use in consumers of this module since all subclasses of the
+# views defined here have to "lift" the view_config options.
+from venusian import lift  # pyflakes=ignore
 
 from pyramid.view import view_config
 from pyramid.view import view_defaults as pyramid_view_defaults
