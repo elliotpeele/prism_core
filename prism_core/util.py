@@ -27,8 +27,10 @@ class AttrDict(dict):
     def __getattr__(self, attr):
         if attr.startswith('_'):
             return dict.__getattr__(self, attr)
-        else:
+        elif attr in self:
             return self.__getitem__(attr)
+        else:
+            raise AttributeError
 
     def __setattr__(self, attr, value):
         if attr.startswith('_'):
